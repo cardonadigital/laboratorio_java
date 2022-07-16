@@ -51,23 +51,19 @@ public class QuestionManager {
 
             case 2:
                 var questionLevel2 = level2.get(randomNumber);
-                System.out.println(questionLevel2.getAsk());
-                break;
+                return compareAnswer(questionLevel2);
 
             case 3:
                 var questionLevel3 = level3.get(randomNumber);
-                System.out.println(questionLevel3.getAsk());
-                break;
+                return compareAnswer(questionLevel3);
 
             case 4:
                 var questionLevel4 = level4.get(randomNumber);
-                System.out.println(questionLevel4.getAsk());
-                break;
+                return compareAnswer(questionLevel4);
 
             case 5:
                 var questionLevel5 = level5.get(randomNumber);
-                System.out.println(questionLevel5.getAsk());
-                break;
+                return compareAnswer(questionLevel5);
 
             default:
                 System.out.println("numero invalido");

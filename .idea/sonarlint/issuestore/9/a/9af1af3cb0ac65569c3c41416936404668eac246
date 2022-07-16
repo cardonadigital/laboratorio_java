@@ -1,8 +1,4 @@
 
 H
 java:S3416"2Update this logger to use "QuestionManager.class".(‚¾ÛÜ
-S	java:S1066"9Replace this use of System.out or System.err by a logger.(„œÞèúÿÿÿÿ
-S	java:S106;"9Replace this use of System.out or System.err by a logger.(µ½æœüÿÿÿÿ
-S	java:S106@"9Replace this use of System.out or System.err by a logger.(›ç ÷øÿÿÿÿ
-S	java:S106E"9Replace this use of System.out or System.err by a logger.(þÜçžÿÿÿÿÿ
-S	java:S106I"9Replace this use of System.out or System.err by a logger.(˜°ð‘üÿÿÿÿ
+S	java:S106E"9Replace this use of System.out or System.err by a logger.(˜°ð‘üÿÿÿÿ

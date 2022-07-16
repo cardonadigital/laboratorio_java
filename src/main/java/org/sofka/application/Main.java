@@ -13,20 +13,34 @@ public class Main {
     private static final Logger logger = Logger.getLogger(Main.class);
     static Scanner scanner = new Scanner(System.in);
     static QuestionManager questionManager = new QuestionManager();
+    static Integer page = 1;
+
     public static void main(String[] args) throws JsonProcessingException {
         new Connection();
-        menu();
         questionManager.questions();
-        Integer option = scanner.nextInt();
-        var correct = questionManager.getQuestion(option);
-        System.out.println(correct);
+        menu();
+
     }
 
     private static void menu(){
-        logger.info("""
+        String message = """
                 --------Estas en el juego de quien quiere ser millonario----------
-                Por favor selecciona la respuesta correcta de acuerdo a la pregunta:
-                """);
+                Estas en el nivel: %s
+                """.formatted(page);
+        logger.info(message);
+        /*Integer page = scanner.nextInt();*/
+        var correct = questionManager.getQuestion(page);
+        if (correct){
+            if (page == 5){
+                System.out.println("has ganado");
+            } else{
+                page +=1;
+                menu();
+            }
+        } else{
+            page = 1;
+            menu();
+        }
 
     }
 }
