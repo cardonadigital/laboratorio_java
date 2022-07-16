@@ -1,14 +1,19 @@
 package org.sofka.application.controller;
 
+import org.jboss.logging.Logger;
+import org.sofka.application.Main;
 import org.sofka.application.connection.Connection;
 import org.sofka.application.model.QuestionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class QuestionManager {
+    static Scanner scanner = new Scanner(System.in);
+    private static final Logger logger = Logger.getLogger(Main.class);
     Random rand = new Random();
 
     List<QuestionModel> level1 = new ArrayList<>();
@@ -37,21 +42,12 @@ public class QuestionManager {
         }
     }
 
-    public void getQuestion(Integer page) {
+    public Boolean getQuestion(Integer page) {
         var randomNumber = getRandomNumber();
         switch (page) {
             case 1:
                 var questionLevel1 = level1.get(randomNumber);
-                /// mostrar menu
-                //verificar respuesta seleccionada (guardar variable en numero )
-                //a
-                //b
-                //c
-                //d
-                //e
-
-                System.out.println(questionLevel1.getAsk());
-                break;
+                return compareAnswer(questionLevel1);
 
             case 2:
                 var questionLevel2 = level2.get(randomNumber);
@@ -76,14 +72,42 @@ public class QuestionManager {
             default:
                 System.out.println("numero invalido");
                 break;
-        }
+        } return false;
     }
 
     private Integer getRandomNumber() {
         return rand.nextInt(4 + 1);
     }
 
-    private void  getInfo(){
-
+    private Boolean compareAnswer(QuestionModel question){
+        var questionAsk = question.getAsk();
+        var answerA = question.getAnswerA();
+        var answerB = question.getAnswerB();
+        var answerC = question.getAnswerC();
+        var answerD = question.getAnswerD();
+        var menuQuestion = """
+                Ingrese la opción que consideres correcta:
+                            Pregunta:
+                %s
+                1 Opción: %s
+                2 Opción: %s
+                3 Opción: %s
+                4 Opción: %s
+                """.formatted(questionAsk, answerA, answerB, answerC, answerD);
+        logger.info(menuQuestion);
+        Integer userOption = scanner.nextInt();
+        var correctAnswer = question.getCorrectAnswer();
+        switch (userOption){
+            case 1:
+                return question.getAnswerA().equals(correctAnswer);
+            case 2:
+                return question.getAnswerB().equals(correctAnswer);
+            case 3:
+                return question.getAnswerC().equals(correctAnswer);
+            case 4:
+                return question.getAnswerD().equals(correctAnswer);
+            default:
+                return false;
+        }
     }
 }

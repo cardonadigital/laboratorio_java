@@ -18,7 +18,8 @@ public class Main {
         menu();
         questionManager.questions();
         Integer option = scanner.nextInt();
-        questionManager.getQuestion(option);
+        var correct = questionManager.getQuestion(option);
+        System.out.println(correct);
     }
 
     private static void menu(){
