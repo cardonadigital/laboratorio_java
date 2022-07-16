@@ -1,0 +1,8 @@
+
+_
+java:S2095"IUse try-with-resources or close this "MongoClient" in a "finally" clause.(‰‚è¸
+C
+java:S3416"-Update this logger to use "Connection.class".(‚¾ÛÜ
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(Ð×Ï¸
+@
+java:S1068"*Remove this unused "logger" private field.(‚¾ÛÜ

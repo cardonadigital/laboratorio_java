@@ -2,28 +2,28 @@ package org.sofka.application;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
+import org.jboss.logging.Logger;
+import org.sofka.application.connection.Connection;
 import org.sofka.application.controller.QuestionManager;
-import org.sofka.application.model.QuestionModel;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
+
 
 public class Main {
-    public static final ObjectMapper objectMapper = new ObjectMapper();
-    static List<QuestionModel> questions = new ArrayList<>();
+    private static final Logger logger = Logger.getLogger(Main.class);
+    static Scanner scanner = new Scanner(System.in);
+    static QuestionManager questionManager = new QuestionManager();
     public static void main(String[] args) throws JsonProcessingException {
-        /*var client = MongoClients.create("mongodb+srv://pilox97:pilox2760517@cluster0.sbeoa.mongodb.net/?retryWrites=true&w=majority");
-        MongoDatabase db = client.getDatabase("myFirstDatabase");
-        MongoCollection<Document> col = db.getCollection("asks");
+        new Connection();
+        menu();
+        questionManager.questions();
+    }
 
-        System.out.println("connection good");*/
-
-        new QuestionManager();
+    private static void menu(){
+        logger.info("""
+                --------Estas en el juego de quien quiere ser millonario----------
+                Por favor selecciona la respuesta correcta de acuerdo a la pregunta:
+                """);
 
     }
 }

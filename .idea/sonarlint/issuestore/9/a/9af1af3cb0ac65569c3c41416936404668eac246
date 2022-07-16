@@ -1,5 +1,2 @@
 
-_
-java:S2095"IUse try-with-resources or close this "MongoClient" in a "finally" clause.(‰‚è¸
-N	java:S106"9Replace this use of System.out or System.err by a logger.(Ð×Ï¸
-S	java:S106&"9Replace this use of System.out or System.err by a logger.(·—¿§ûÿÿÿÿ
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ÿâ•’8à˜¨Ã 0
