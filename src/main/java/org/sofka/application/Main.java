@@ -17,6 +17,8 @@ public class Main {
         new Connection();
         menu();
         questionManager.questions();
+        Integer option = scanner.nextInt();
+        questionManager.getQuestion(option);
     }
 
     private static void menu(){
