@@ -44,8 +44,12 @@ public class Main {
             Integer option = scanner.nextInt();
             if (option == 1){
                 exit = true;
-            }else scanner.nextLine();
-            logger.info("el juego se ha reniciado");
+            }else{
+                page = 1;
+                scanner.nextLine();
+                logger.info("el juego se ha reniciado");
+            }
+
 
         } while (!exit);
     }
@@ -61,8 +65,8 @@ public class Main {
             if (page == 5){
                 Winner winner = new Winner(name, age, score);
                 String userMessage = winner.message();
-                System.out.println(userMessage);
                 connection.insertDocument(name, age, score);
+                logger.info(userMessage);
             } else{
                 page +=1;
                 score += 5;
@@ -71,8 +75,8 @@ public class Main {
         } else{
             Loser loser = new Loser(name, age, score);
             String userMessage = loser.message();
-            System.out.println(userMessage);
             connection.insertDocument(name, age, score);
+            logger.info(userMessage);
             page = 1;
             score = 0;
         }

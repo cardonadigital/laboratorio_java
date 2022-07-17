@@ -10,8 +10,8 @@ public class Winner extends Person {
 
     @Override
     public String message() {
-        return "Felicidades " + getName() + " de " + getAge() + "\n" +
-                " años, eres el feliz ganador de un premio de 1 millon de bolvivares \n" +
+        return "Felicidades " + getName() + " de " + getAge() + " años, \n" +
+                "eres el feliz ganador de un premio de 1 millon de bolvivares \n" +
                 "score final: " + getScore();
     }
 }
