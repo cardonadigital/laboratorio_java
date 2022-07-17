@@ -10,6 +10,7 @@ public class Loser extends Person {
 
     @Override
     public String message() {
-        return "Cordial saludo " + getName() + " de " + getAge() + " años, lastimosamente has perdido";
+        return "Cordial saludo " + getName() + " de " + getAge() + " años, lastimosamente has perdido\n" +
+                "score final: " + getScore();
     }
 }

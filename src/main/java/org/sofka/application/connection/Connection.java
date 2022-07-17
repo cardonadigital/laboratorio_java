@@ -21,11 +21,11 @@ public class Connection {
     public static final ObjectMapper objectMapper = new ObjectMapper();
     static List<QuestionModel> questions = new ArrayList<>();
 
-    public Connection() throws JsonProcessingException {
+    /*public Connection() throws JsonProcessingException {
         connection();
-    }
+    }*/
 
-    private void connection() throws JsonProcessingException {
+    public void connection() throws JsonProcessingException {
         var client = MongoClients.create("mongodb+srv://pilox97:pilox2760517@cluster0.sbeoa.mongodb.net/?retryWrites=true&w=majority");
         MongoDatabase db = client.getDatabase("myFirstDatabase");
         MongoCollection<Document> col = db.getCollection("asks");

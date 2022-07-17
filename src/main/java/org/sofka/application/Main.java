@@ -15,26 +15,39 @@ import java.util.Scanner;
 public class Main {
     private static final Logger logger = Logger.getLogger(Main.class);
     static Scanner scanner = new Scanner(System.in);
+    static Connection connection;
+    static {
+        connection = new Connection();
+    }
+
     static QuestionManager questionManager = new QuestionManager();
     static Integer page = 1;
     static String name;
     static Integer age;
-    static Integer score;
+    static Integer score = 0;
+    static Boolean exit = false;
 
     public static void main(String[] args) throws JsonProcessingException {
-        new Connection();
+        connection.connection();
         /*new Connection().insertDocument("daniel", 25, 20 );*/
         questionManager.questions();
         menu();
-
-
     }
 
     private static void menu(){
-        logger.info("Ingrese nombre y luego la edad");
-        name = scanner.nextLine();
-        age = scanner.nextInt();
-        submenu();
+        do {
+            logger.info("Ingrese nombre y luego la edad");
+            name = scanner.nextLine();
+            age = scanner.nextInt();
+            submenu();
+            logger.info("oprime 1 si quieres salir, 2 si quieres seguir");
+            Integer option = scanner.nextInt();
+            if (option == 1){
+                exit = true;
+            }else scanner.nextLine();
+            logger.info("el juego se ha reniciado");
+
+        } while (!exit);
     }
 
     private static void submenu(){
@@ -49,14 +62,17 @@ public class Main {
                 Winner winner = new Winner(name, age, score);
                 String userMessage = winner.message();
                 System.out.println(userMessage);
+                connection.insertDocument(name, age, score);
             } else{
                 page +=1;
+                score += 5;
                 submenu();
             }
         } else{
             Loser loser = new Loser(name, age, score);
             String userMessage = loser.message();
             System.out.println(userMessage);
+            connection.insertDocument(name, age, score);
             page = 1;
             score = 0;
         }
