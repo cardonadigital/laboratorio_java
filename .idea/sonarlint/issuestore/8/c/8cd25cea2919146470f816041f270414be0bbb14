@@ -1,9 +1,5 @@
 
 E
-java:S54116"*Use the primitive boolean expression here.(¾‰ûÿÿÿÿ
+java:S5411N"*Use the primitive boolean expression here.(¾‰ûÿÿÿÿ
 E
-java:S5411@"*Use the primitive boolean expression here.(ı‰­ìÿÿÿÿÿ
-V	java:S125 "<This block of commented-out lines of code should be removed.(‚Óéƒøÿÿÿÿ
-o
-java:S1128
-"MRemove this unused import 'org.sofka.application.model.abstractClass.Person'.(Ğß²§ùÿÿÿÿ8„÷Ğ 0
+java:S5411c"*Use the primitive boolean expression here.(ı‰­ìÿÿÿÿÿ

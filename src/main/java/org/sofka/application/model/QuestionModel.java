@@ -2,6 +2,14 @@ package org.sofka.application.model;
 
 import org.sofka.application.model.interfaces.QuestionInterface;
 
+/**
+ * This class contains the attributes of the Question mapped from database
+ *
+ * @author Andres Camilo Díaz - Daniel David Cardona Moreno
+ * @version 1.0.0 17/07/2022
+ * @since 1.0.0
+ */
+
 public class QuestionModel implements QuestionInterface {
     private String ask;
     private Integer category;
@@ -15,10 +23,6 @@ public class QuestionModel implements QuestionInterface {
     @Override
     public String getAsk() {
         return ask;
-    }
-    @Override
-    public Integer getCategory() {
-        return category;
     }
     @Override
     public String getAnswerA() {
