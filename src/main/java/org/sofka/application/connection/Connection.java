@@ -32,7 +32,6 @@ public class Connection {
 
         System.out.println("connection good");
 
-
         var element = col.find().iterator();
 
         while (element.hasNext()){
@@ -45,5 +44,16 @@ public class Connection {
 
     public static List<QuestionModel> getQuestions() {
         return questions;
+    }
+
+    public void insertDocument(String name, Integer age, Integer score){
+        var client = MongoClients.create("mongodb+srv://pilox97:pilox2760517@cluster0.sbeoa.mongodb.net/?retryWrites=true&w=majority");
+        MongoDatabase db = client.getDatabase("myFirstDatabase");
+        MongoCollection<Document> col = db.getCollection("participants");
+        Document document = new Document("name", name).
+                append("age", age).
+                append("score", score);
+        col.insertOne(document);
+        System.out.println("se ha insertado info");
     }
 }

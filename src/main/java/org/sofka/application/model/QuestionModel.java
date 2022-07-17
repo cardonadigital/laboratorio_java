@@ -1,6 +1,8 @@
 package org.sofka.application.model;
 
-public class QuestionModel implements QuestionInterface{
+import org.sofka.application.model.interfaces.QuestionInterface;
+
+public class QuestionModel implements QuestionInterface {
     private String ask;
     private Integer category;
     private String answerA;

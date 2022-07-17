@@ -1,4 +1,4 @@
-package org.sofka.application.model;
+package org.sofka.application.model.interfaces;
 
 public interface QuestionInterface {
 
